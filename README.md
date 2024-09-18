@@ -68,10 +68,34 @@ print(y1_scaled)
 ![image](https://github.com/user-attachments/assets/cf5029ad-12a4-4c76-b08d-00eedfaa7382)
 ![image](https://github.com/user-attachments/assets/cdece828-f185-43e8-8c69-7ccfc65d167d)
 ```
-def multivariate_linear_regression (x1,y,learning_rate=0.01,num_iterations=100):
-  theta=multivariate_linear_regression(x1_scaled,y1_scaled)
-x=np.c_[np.ones(len(x1_scaled)),x1_scaled]
-num_iterations=100
+def linear_regression(X1,y,learning_rate = 0.01, num_iters = 100):
+    X = np.c_[np.ones(len(X1)),X1]
+    theta = np.zeros(X.shape[1]).reshape(-1,1)
+    for _ in range(num_iters):
+        predictions = (X).dot(theta).reshape(-1,1)
+        
+        #calculate errors
+        errors=(predictions - y ).reshape(-1,1)
+        
+        #update theta using gradiant descent
+        theta -= learning_rate*(1/len(X1))*X.T.dot(errors)
+    return theta
 ```
+
+```
+theta=linear_regression(X1_Scaled,Y1_Scaled)
+```
+```
+new_data=np.array([165349.2,136897.8,471784.1]).reshape(-1,1)
+new_Scaled=scaler.fit_transform(new_data)
+prediction=np.dot(np.append(1,new_Scaled),theta)
+prediction=prediction.reshape(-1,1)
+pre=scaler.inverse_transform(prediction)
+print(prediction)
+print(f"Predicted value: {pre}")
+```
+## Output:
+![image](https://github.com/user-attachments/assets/9518aa1a-01a6-4c3e-95e7-6e3e58a9abd2)
+
 ## Result:
 Thus the program to implement the linear regression using gradient descent is written and verified using python programming.
