@@ -30,8 +30,8 @@ RegisterNumber: 212223230062
 import pandas as pd
 import numpy as np
 ```
-df=pd.read_csv("50_Startups.csv")
 ```
+df=pd.read_csv("50_Startups.csv")
 ```
 ```
 df.head()
