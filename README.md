@@ -29,7 +29,11 @@ RegisterNumber: 212223230062
 ```
 import pandas as pd
 import numpy as np
+```
 df=pd.read_csv("50_Startups.csv")
+```
+```
+```
 df.head()
 ```
 ## Output:
@@ -47,6 +51,8 @@ df.info()
 ```
 x=(df.iloc[1:,:-2].values)
 y=(df.iloc[1:,-1].values).reshape(-1,1)
+```
+```
 print(y)
 ```
 ## Output:
@@ -61,6 +67,8 @@ from sklearn.preprocessing import StandardScaler
 scaler=StandardScaler()
 x1_scaled=scaler.fit_transform(x)
 y1_scaled=scaler.fit_transform(y)
+```
+```
 print(x1_scaled)
 print(y1_scaled)
 ```
@@ -91,6 +99,8 @@ new_Scaled=scaler.fit_transform(new_data)
 prediction=np.dot(np.append(1,new_Scaled),theta)
 prediction=prediction.reshape(-1,1)
 pre=scaler.inverse_transform(prediction)
+```
+```
 print(prediction)
 print(f"Predicted value: {pre}")
 ```
